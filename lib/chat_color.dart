@@ -130,32 +130,9 @@ extension XString on String {
     return o;
   }
 
-  String get trueColor {
+  String get chatColor {
     return "${_process(trueColorBackgroundTrigger, true)._process(trueColorTrigger, false)}$_clear";
   }
-}
-
-void main() {
-  print("&00&11&22&33&44&55&66&77&88&99&aa&bb&cc&dd&ee&ff".trueColor);
-  print(
-      "&kObfuscated&r &lBold&r &mStrikethrough&r &nUnderline&r &oItalic&r &rReset"
-          .trueColor);
-  print("You &lcan &mcombine &nthem &oalso...\n".trueColor);
-  print("Hello &(255,0,0)RED (255,0,0)".trueColor);
-  print("Hello &(#00ff00)GREEN #00ff0000".trueColor);
-  print("Hello &(${0x0000ff})BLUE \${0x000000ff}\n".trueColor);
-
-  print("@8Background Colors exist\n".trueColor);
-
-  print("You can spin text!".spin(0xff0000, 0x00ff00).trueColor);
-
-  print(
-      "${"You can also spin text ".spin(0xff0000, 0x00ff00)}${"all the way chaining multiple spins ".spin(0x00ff00, 0x0000ff)}${"and go in any direction ".spin(0x0000ff, 0xff00ff)}${"you could want!".spin(0xff00ff, 0x00ffff)}"
-          .trueColor);
-
-  print("So yeah, thats cool"
-      .spin(0x550000, 0x0000055, bg: true, unicorn: true)
-      .trueColor);
 }
 
 String chatColor(int color, {bool bg = false}) => _rgb(_toColor(color), bg: bg);
